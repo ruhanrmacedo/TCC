@@ -1,0 +1,119 @@
+<style>
+    .img-with-caption {
+        position: relative;
+    }
+    .img-with-caption img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .img-with-caption figcaption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        font-size: 14px;
+    }
+</style>
+
+<div wm-include="/pages/galery/galeryHeader.html"></div>
+<div class="container mt-5">
+    <!-- city buttons -->
+    <div class="row justify-content-center pb-5">
+        <div wm-city-buttons></div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/carneBovina.jpeg" class="img-fluid mb-4"
+                wm-city="Açougue">
+                <figcaption>Carne bovina</figcaption>
+            </figure>    
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/carneAve.jpg" class="img-fluid mb-4"
+                wm-city="Açougue">
+                <figcaption>Aves</figcaption>
+            </figure>  
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/carneExotica.jpg" class="img-fluid mb-4"
+                    wm-city="Açougue">
+                <figcaption>Carne exótica</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/carneSuina.jpg" class="img-fluid mb-4"
+                wm-city="Açougue">
+                <figcaption>Carne suína</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/Agua.jpg" class="img-fluid mb-4"
+                wm-city="Bebidas">
+                <figcaption>Água mineral</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/cerveja.jpg" class="img-fluid mb-4"
+                wm-city="Bebidas">
+                <figcaption>Cerveja</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/refri.jpg" class="img-fluid mb-4"
+                wm-city="Bebidas">
+                <figcaption>Refrigerante</figcaption>
+            </figure>
+            
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/destilado.jpg" class="img-fluid mb-4"
+                wm-city="Bebidas">
+                <figcaption>Destilado</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/frutas.jpg" class="img-fluid mb-4"
+                wm-city="Hortifrúti">
+                <figcaption>Frutas</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/verduras.jpg" class="img-fluid mb-4"
+                wm-city="Hortifrúti">
+                <figcaption>Verduras e Legumes</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/congelados.jpg" class="img-fluid mb-4"
+                wm-city="Frios">
+                <figcaption>Congelados</figcaption>
+            </figure>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <figure class="img-with-caption">
+                <img src="/imgs/queijo.jpg" class="img-fluid mb-4"
+                wm-city="Frios">
+                <figcaption>Queijos</figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+<script>
+    $('[wm-city-buttons]').cityButtons()
+</script>
