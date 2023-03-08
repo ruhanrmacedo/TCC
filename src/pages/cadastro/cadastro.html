@@ -1,40 +1,22 @@
 <style>
-    .form-row[wm-city="Usuario"] {
-        display: none;
+    .form-row[wm-city] {
+      display: none;
     }
-
-    .form-row[wm-city="Mercado"] {
-        display: none;
+  
+    button[wm-city] {
+      background-color: #007bff;
+      color: #fff;
     }
-
-    .form-row[wm-city="Colaborador"] {
-        display: none;
-    }
-
-    .form-row[wm-city="DeliveryMan"] {
-        display: none;
-    }
-
-    .btn-blue {
-        background-color: #007bff;
-        color: #fff;
-    }
-
-    .btn-blue.active {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-    }
-</style>
-
-<div wm-include="/pages/cadastro/cadastroHeader.html"></div>
-<div class="container mt-5">
-
-    <!-- city buttons -->
+  </style>
+  
+  <div wm-include="/pages/cadastro/cadastroHeader.html"></div>
+  <div class="container mt-5">
+  
     <div class="row d-flex justify-content-center">
-        <button id="usuario-btn" class="btn btn-blue">Usuário</button>
-        <button id="mercado-btn" class="btn btn-blue">Mercado</button>
-        <button id="colaborador-btn" class="btn btn-blue">Colaborador</button>
-        <button id="deliveryMan-btn" class="btn btn-blue">DeliveryMan</button>
+      <button id="usuario-btn" wm-city="Usuario">Usuário</button>
+      <button id="mercado-btn" wm-city="Mercado">Mercado</button>
+      <button id="colaborador-btn" wm-city="Colaborador">Colaborador</button>
+      <button id="deliveryMan-btn" wm-city="DeliveryMan">DeliveryMan</button>
     </div>
 
     <!-- Cadastro Usuario -->
@@ -263,54 +245,34 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    const usuarioBtn = document.getElementById('usuario-btn');
-    const mercadoBtn = document.getElementById('mercado-btn');
-    const colaboradorBtn = document.getElementById('colaborador-btn');
-    const deliveryManBtn = document.getElementById('deliveryMan-btn');
+    function mostrarFormulario(city) {
+        // esconder todos os campos de cadastro
+        var forms = document.querySelectorAll('.form-row[wm-city]');
+        for (var i = 0; i < forms.length; i++) {
+            forms[i].style.display = 'none';
+        }
 
-    // seleciona todas as seções de formulário
-    const usuarioForm = document.querySelector('[wm-city="Usuario"]');
-    const mercadoForm = document.querySelector('[wm-city="Mercado"]');
-    const colaboradorForm = document.querySelector('[wm-city="Colaborador"]');
-    const deliveryManForm = document.querySelector('[wm-city="DeliveryMan"]');
+        // mostrar o campo de cadastro para a cidade selecionada
+        var form = document.querySelector('.form-row[wm-city="' + city + '"]');
+        if (form) {
+            form.style.display = 'block';
+        }
+    }
 
-    // adiciona o evento de clique ao botão "usuario-btn"
-    usuarioBtn.addEventListener('click', () => {
-        // exibe o formulário de usuário
-        usuarioForm.style.display = 'block';
-        // oculta os outros formulários
-        mercadoForm.style.display = 'none';
-        colaboradorForm.style.display = 'none';
-        deliveryManForm.style.display = 'none';
+    // adicionar manipuladores de eventos aos botões de cidade
+    document.getElementById('usuario-btn').addEventListener('click', function () {
+        mostrarFormulario('Usuario');
     });
 
-    // adiciona o evento de clique ao botão "mercado-btn"
-    mercadoBtn.addEventListener('click', () => {
-        // exibe o formulário de usuário
-        mercadoForm.style.display = 'block';
-        // oculta os outros formulários
-        usuarioForm.style.display = 'none';
-        colaboradorForm.style.display = 'none';
-        deliveryManForm.style.display = 'none';
+    document.getElementById('mercado-btn').addEventListener('click', function () {
+        mostrarFormulario('Mercado');
     });
 
-    // adiciona o evento de clique ao botão "colaborador-btn"
-    colaboradorBtn.addEventListener('click', () => {
-        // exibe o formulário de usuário
-        colaboradorForm.style.display = 'block';
-        // oculta os outros formulários
-        usuarioForm.style.display = 'none';
-        mercadoForm.style.display = 'none';
-        deliveryManForm.style.display = 'none';
+    document.getElementById('colaborador-btn').addEventListener('click', function () {
+        mostrarFormulario('Colaborador');
     });
 
-    // adiciona o evento de clique ao botão "deliveryMan-btn"
-    deliveryManBtn.addEventListener('click', () => {
-        // exibe o formulário de usuário
-        deliveryManForm.style.display = 'block';
-        // oculta os outros formulários
-        usuarioForm.style.display = 'none';
-        mercadoForm.style.display = 'none';
-        colaboradorForm.style.display = 'none';
+    document.getElementById('deliveryMan-btn').addEventListener('click', function () {
+        mostrarFormulario('DeliveryMan');
     });
 </script>
