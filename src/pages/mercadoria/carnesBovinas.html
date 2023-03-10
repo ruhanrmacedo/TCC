@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SuperDelivery</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function increment() {
+            var input = event.target.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+        }
+
+        function decrement() {
+            var input = event.target.nextElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            input.value = value;
+        }
+        
+    </script>
+
+
+</head>
+
+<body>
+    <div wm-include="/pages/produto/produtoHeader.html"></div>
+    <div class="container mt-5">
+        <!-- produto buttons -->
+        <div class="row justify-content-center pb-5">
+            <div wm-produto-buttons></div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-6 col-lg-3">
+                <form>
+                    <figure class="img-with-caption">
+                        <img src="/imgs/contraFileAngusBestBeef.jpg" class="img-fluid mb-4" wm-produto="BestBeef">
+                        <figcaption>Contra Filé Embalagem A Vácuo 1kg</figcaption>
+                    </figure>
+                    <div class="input-group mb-3 form-product">
+                        <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button>
+                        <input type="number" class="form-control" placeholder="0" aria-label="Quantidade"
+                            aria-describedby="button-addon1" id="quantity1">
+                        <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+                        <button type="button" class="btn btn-primary" onclick="addCart('Contra Filé Embalagem A Vácuo 1kg', 'quantity1')">Adicionar</button>
+                    </div>     
+                </form>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <form>
+                    <figure class="img-with-caption">
+                        <img src="/imgs/picanhaBestBeef.jpg" class="img-fluid mb-4" wm-produto="BestBeef">
+                        <figcaption>Picanha BestBeefEmbalagem A Vácuo 1kg</figcaption>
+                    </figure>
+                    <div class="input-group mb-3 form-product">
+                        <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button>
+                        <input type="number" class="form-control" placeholder="0" aria-label="Quantidade"
+                            aria-describedby="button-addon1" id="quantity2">
+                        <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+                        <button type="button" class="btn btn-primary" onclick="addCart('Picanha BestBeefEmbalagem A Vácuo 1kg', 'quantity2')">Adicionar</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <form>
+                    <figure class="img-with-caption">
+                        <img src="/imgs/picanhaMontana.jpg" class="img-fluid mb-4" wm-produto="Montana">
+                        <figcaption>Picanha Montana Embalagem A Vácuo 1kg</figcaption>
+                    </figure>
+                    <div class="input-group mb-3 form-product">
+                        <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button>
+                        <input type="number" class="form-control" placeholder="0" aria-label="Quantidade"
+                            aria-describedby="button-addon1" id="quantity3">
+                        <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+                        <button type="button" class="btn btn-primary" onclick="addCart('Picanha Montana Embalagem A Vácuo 1kg', 'quantity3')">Adicionar</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <form>
+                    <figure class="img-with-caption">
+                        <img src="/imgs/peixinhoSemMarca.jpg" class="img-fluid mb-4" wm-produto="Sem Marca">
+                        <figcaption>Peixinho A Vácuo 1kg</figcaption>
+                    </figure>
+                    <div class="input-group mb-3 form-product"a">
+                        <button class="btn btn-outline-secondary" type="button" onclick="decrement()">-</button>
+                        <input type="number" class="form-control" placeholder="0" aria-label="Quantidade"
+                            aria-describedby="button-addon1" id="quantity4">
+                        <button class="btn btn-outline-secondary" type="button" onclick="increment()">+</button>
+                        <button type="button" class="btn btn-primary" onclick="addCart('Peixinho A Vácuo 1kg', 'quantity4')">Adicionar</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+        <script>
+            $('[wm-produto-buttons]').produtoButtons()
+        </script>
+
+
+</body>
+
+</html>

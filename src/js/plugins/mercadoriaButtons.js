@@ -1,13 +1,13 @@
-import $ from 'jquery'
-
 import { onLoadHtmlSuccess } from '../core/includes'
+
+import $ from 'jquery'
 
 const duration = 300
 
-function filterByCity(city) {
-    $('[wm-city]').each(function(i, e) {
-        const isTarget = $(this).attr('wm-city') === city
-            || city === null
+function filterBymercadoria(mercadoria) {
+    $('[wm-mercadoria]').each(function(i, e) {
+        const isTarget = $(this).attr('wm-mercadoria') === mercadoria
+            || mercadoria === null
         if(isTarget) {
             $(this).parent().removeClass('d-none')
             $(this).fadeIn(duration)
@@ -19,23 +19,23 @@ function filterByCity(city) {
     })
 }
 
-$.fn.cityButtons = function () {
+$.fn.mercadoriaButtons = function () {
     
-    const cities = new Set
-    $('[wm-city]').each(function(i, e) {
-        cities.add($(e).attr('wm-city'))
+    const mercadorias = new Set
+    $('[wm-mercadoria]').each(function(i, e) {
+        mercadorias.add($(e).attr('wm-mercadoria'))
     })
 
-    const btns = Array.from(cities).map(city => {
+    const btns = Array.from(mercadorias).map(mercadoria => {
         const btn = $('<button>')
-            .addClass(['btn', 'btn-info']).html(city)
-        btn.click(e => filterByCity(city))
+            .addClass(['btn', 'btn-info']).html(mercadoria)
+        btn.click(e => filterBymercadoria(mercadoria))
         return btn
     })
 
     const btnAll = $('<button>')
         .addClass(['btn', 'btn-info', 'active']).html('Todas')
-    btnAll.click(e => filterByCity(null))
+    btnAll.click(e => filterBymercadoria(null))
     btns.push(btnAll)
 
     const btnGroup = $('<div>').addClass(['btn-group'])
@@ -46,6 +46,5 @@ $.fn.cityButtons = function () {
 }
 
 onLoadHtmlSuccess(function() {
-    $('[wm-city-buttons]').cityButtons()
+    $('[wm-mercadoria-buttons]').mercadoriaButtons()
 })
-

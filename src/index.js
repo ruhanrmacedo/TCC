@@ -7,4 +7,6 @@ import 'bootstrap'
 
 // Meus arquivos JS
 import './js/core/includes'
-import './js/plugins/cityButtons'
+import './js/plugins/mercadoriaButtons'
+import './js/plugins/cadastroButtons'
+import './js/plugins/produtoButtons'

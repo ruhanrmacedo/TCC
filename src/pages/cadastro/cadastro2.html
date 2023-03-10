@@ -1,26 +1,12 @@
-<style>
-    .form-row[wm-city] {
-      display: none;
-    }
-  
-    button[wm-city] {
-      background-color: #007bff;
-      color: #fff;
-    }
-  </style>
-  
-  <div wm-include="/pages/cadastro/cadastroHeader.html"></div>
-  <div class="container mt-5">
-  
-    <div class="row d-flex justify-content-center">
-      <button id="usuario-btn" wm-city="Usuario">Usuário</button>
-      <button id="mercado-btn" wm-city="Mercado">Mercado</button>
-      <button id="colaborador-btn" wm-city="Colaborador">Colaborador</button>
-      <button id="deliveryMan-btn" wm-city="DeliveryMan">DeliveryMan</button>
+<div wm-include="/pages/cadastro/cadastroHeader.html"></div>
+<div class="container mt-5">
+    <!-- cadastro buttons -->
+    <div class="row justify-content-center pb-5">
+        <div wm-cadastro-buttons></div>
     </div>
 
     <!-- Cadastro Usuario -->
-    <div class="form-row" wm-city="Usuario" style="display: none;">
+    <form id="cadastroUsuario" class="form-row" wm-cadastro="Usuario">
         <div class="col-12">
             <div class="form-group">
                 <label for="nome">Nome</label>
@@ -71,10 +57,15 @@
                 <input type="password" class="form-control" id="confirmeSenha" placeholder="Confirme sua senha">
             </div>
         </div>
-    </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-secondary" onclick="document.getElementById('cadastroUsuario').reset();">Limpar</button>
+        </div>
+    </form>
 
     <!-- Cadastro Mercado -->
-    <div class="form-row" wm-city="Mercado">
+    <form id="cadastroMercado" class="form-row" wm-cadastro="Mercado">
         <div class="col-12">
             <div class="form-group">
                 <label for="nome-fantasia">Nome fantasia</label>
@@ -139,10 +130,14 @@
                 <input type="password" class="form-control" id="confirmeSenha-mercado" placeholder="Confirme sua senha">
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-secondary" onclick="document.getElementById('cadastroMercado').reset();">Limpar</button>
+        </div>
+    </form>
 
     <!-- Cadastro colaborador -->
-    <div class="form-row" wm-city="Colaborador">
+    <form id="cadastroColaborador" class="form-row" wm-cadastro="Colaborador">
         <div class="col-12">
             <div class="form-group">
                 <label for="nome-colaborador">Nome:</label>
@@ -189,10 +184,14 @@
                     placeholder="Confirme sua senha">
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-secondary" onclick="document.getElementById('cadastroColaborador').reset();">Limpar</button>
+        </div>
+    </form>
 
     <!-- Cadastro DeliveryMan -->
-    <div class="form-row" wm-city="DeliveryMan">
+    <form id="cadastroDeliveryMan" class="form-row" wm-cadastro="DeliveryMan">
         <div class="col-12">
             <div class="form-group">
                 <label for="nome-deliveryMan">Nomes:</label>
@@ -239,40 +238,13 @@
                     placeholder="Confirme sua senha">
             </div>
         </div>
-    </div>
-
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-secondary" onclick="document.getElementById('cadastroDeliveryMan').reset();">Limpar</button>
+        </div>
+    </form>
+    
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function mostrarFormulario(city) {
-        // esconder todos os campos de cadastro
-        var forms = document.querySelectorAll('.form-row[wm-city]');
-        for (var i = 0; i < forms.length; i++) {
-            forms[i].style.display = 'none';
-        }
-
-        // mostrar o campo de cadastro para a cidade selecionada
-        var form = document.querySelector('.form-row[wm-city="' + city + '"]');
-        if (form) {
-            form.style.display = 'block';
-        }
-    }
-
-    // adicionar manipuladores de eventos aos botões de cidade
-    document.getElementById('usuario-btn').addEventListener('click', function () {
-        mostrarFormulario('Usuario');
-    });
-
-    document.getElementById('mercado-btn').addEventListener('click', function () {
-        mostrarFormulario('Mercado');
-    });
-
-    document.getElementById('colaborador-btn').addEventListener('click', function () {
-        mostrarFormulario('Colaborador');
-    });
-
-    document.getElementById('deliveryMan-btn').addEventListener('click', function () {
-        mostrarFormulario('DeliveryMan');
-    });
+    $('[wm-cadastro-buttons]').cadastroButtons()
 </script>
